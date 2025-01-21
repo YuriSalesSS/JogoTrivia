@@ -1,6 +1,13 @@
 fetch('perguntas.json')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Erro na resposta: ${response.status} - ${response.statusText}`);
+    }
+    return response.json();
   })
-  .catch(error => console.error('Erro ao carregar o JSON:', error))
+  .then(data => {
+    console.log('Dados carregados:', data);
+  })
+  .catch(error => {
+    console.error('Erro ao carregar o JSON:', error.message);
+  });
