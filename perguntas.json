@@ -65,7 +65,7 @@
       "respostaCorreta": 3
     }
   ],
-  "conhecimentosGerais": [
+  "conhecimentosgerais": [
     {
       "pergunta": "Qual é a língua mais falada no mundo?",
       "respostas": ["Inglês", "Chinês mandarim", "Espanhol", "Hindi"],
