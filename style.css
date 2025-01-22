@@ -33,3 +33,10 @@ header {
 .botao:focus {
     outline: 2px solid #000;
 }
+#perguntas {
+    display: none;
+  }
+  #perguntas.mostrar {
+    display: block;
+  }
+    
