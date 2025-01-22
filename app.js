@@ -6,7 +6,7 @@ botoes.forEach(function(botao){
     if (botao.id === 'HistoriaBt'){
       console.log('Perguntas sobre Historia')
     }else if (botao.id === 'GeografiaBt'){
-      console.log('Perguntas sobre Historia')
+      console.log('Perguntas sobre Geografia')
     }else if (botao.id === 'CienciasBt'){
       console.log('Perguntas sobre Ciencias')
     }else if(botao.id === 'ConhecimentosGBt'){
