@@ -5,7 +5,7 @@ const perguntas = document.getElementById('perguntas')
 carregarPerguntas().then(data =>{
     conversaoId(function(valorConvertido){
       let pergunta = data[valorConvertido][0].pergunta
-      console.log(pergunta)
+      perguntas.innerText = `${pergunta}`
         
     })
 }).catch(error => {

@@ -36,7 +36,7 @@ header {
 #perguntas {
     display: none;
   }
-  #perguntas.mostrar {
+  #perguntas.carregarPerguntas {
     display: block;
   }
     
