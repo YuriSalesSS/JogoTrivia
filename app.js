@@ -1,12 +1,14 @@
 import { carregarPerguntas } from './jsonLoader.js'
 const botoes = document.querySelectorAll('.botao')
+const perguntas = document.getElementById('perguntas')
 
 carregarPerguntas().then(data =>{
     conversaoId(function(valorConvertido){
-      console.log(valorConvertido)
+      console.log(data[valorConvertido])
+        
     })
 }).catch(error => {
-  console.error('Erro ao carregar as perguntas:', error.message);
+  console.error('Erro ao carregar as perguntas:', error.message)
 })
 
 
@@ -21,4 +23,4 @@ function conversaoId(callback){
   })
  
 }
-  
+

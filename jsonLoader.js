@@ -6,11 +6,5 @@ export function carregarPerguntas(){
     }
     return response.json();
   })
-  .then(data => {
-    console.log('Dados carregados:', data);
-  })
-  .catch(error => {
-    console.error('Erro ao carregar o JSON:', error.message);
-  });
 }
 
