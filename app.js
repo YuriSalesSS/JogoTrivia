@@ -2,6 +2,7 @@ import { carregarPerguntas } from './jsonLoader.js'
 
 const botoes = document.querySelectorAll('.botao')
 const perguntasContainter = document.getElementById('perguntas')
+const opcoesContainer = document.getElementById("opcoes")
 
 let estado = {
   historia: 0,
@@ -40,8 +41,19 @@ function exibirPergunta(data, categoria){
     const perguntasCategoria = data[categoria]
 
   if (perguntasCategoria && perguntasCategoria[indiceAtual]){
-    const pergunta = perguntasCategoria[indiceAtual].pergunta
-    perguntasContainter.innerText = pergunta 
+    const perguntaAtual = perguntasCategoria[indiceAtual]
+    perguntasContainter.innerText = perguntaAtual.pergunta 
+
+    opcoesContainer.innerHTML = ""
+    perguntaAtual.respostas.forEach((resposta, index) => {
+      const botaoResposta = document.createElement("button")
+      botaoResposta.innerText = resposta
+      botaoResposta.addEventListener('click', () => {
+        console.log(`Resposta clicada${resposta}`)
+      })
+      opcoesContainer.appendChild(botaoResposta)
+    })
+
 
     estado[categoria]++
     if(estado[categoria >= perguntasCategoria.lenght]){
@@ -49,5 +61,6 @@ function exibirPergunta(data, categoria){
     }
   } else {
     perguntasContainter.innerText = 'Categoria não encontrada'
+    opcoesContainer.innerHTML = ""
   }
 }
