@@ -48,15 +48,16 @@ function exibirPergunta(data, categoria){
     perguntaAtual.respostas.forEach((resposta, index) => {
       const botaoResposta = document.createElement("button")
       botaoResposta.innerText = resposta
+      botaoResposta.classList.add('botao')
       botaoResposta.addEventListener('click', () => {
-        console.log(`Resposta clicada${resposta}`)
+        console.log(`Resposta clicada ${resposta}`)
       })
       opcoesContainer.appendChild(botaoResposta)
     })
 
 
     estado[categoria]++
-    if(estado[categoria >= perguntasCategoria.lenght]){
+    if(estado[categoria] >= perguntasCategoria.length){
       estado[categoria] = 0
     }
   } else {
