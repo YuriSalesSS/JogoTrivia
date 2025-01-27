@@ -3,6 +3,14 @@ import { carregarPerguntas } from './jsonLoader.js'
 const botoes = document.querySelectorAll('.botao')
 const perguntasContainter = document.getElementById('perguntas')
 
+let estado = {
+  historia: 0,
+  geografia: 0,
+  ciencias: 0,
+  conhecimentosgerais: 0
+}
+
+
 // funcao principal
 carregarPerguntas()
   .then(data =>{
@@ -28,9 +36,17 @@ function configurarBotoes(data){
  
 // funcao para exibir o conteudo da pergunta no conteiner 
 function exibirPergunta(data, categoria){
-  if (data[categoria] && data[categoria][0]){
-    const pergunta = data[categoria][0].pergunta
-    perguntasContainter.innerText = pergunta
+    const indiceAtual = estado[categoria]
+    const perguntasCategoria = data[categoria]
+
+  if (perguntasCategoria && perguntasCategoria[indiceAtual]){
+    const pergunta = perguntasCategoria[indiceAtual].pergunta
+    perguntasContainter.innerText = pergunta 
+
+    estado[categoria]++
+    if(estado[categoria >= perguntasCategoria.lenght]){
+      estado[categoria] = 0
+    }
   } else {
     perguntasContainter.innerText = 'Categoria não encontrada'
   }
