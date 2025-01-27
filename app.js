@@ -13,7 +13,7 @@ carregarPerguntas()
   console.error('Erro ao carregar as perguntas:', error.message)
 })
 
-
+//funcao para configurar os sventos nos botoes
 function configurarBotoes(data){
     botoes.forEach(botao => {
       botao.addEventListener('click', () => {
@@ -25,7 +25,8 @@ function configurarBotoes(data){
   
  
 }
-
+ 
+// funcao para exibir o conteudo da pergunta no conteiner 
 function exibirPergunta(data, categoria){
   if (data[categoria] && data[categoria][0]){
     const pergunta = data[categoria][0].pergunta
