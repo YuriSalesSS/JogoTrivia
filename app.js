@@ -73,8 +73,10 @@ function exibirPergunta(data, categoria){
 
 
 
+
+// função para ao final das perguntas, incluir a pontuação e o botao para reiniciar o jogo
 function finalizarJogo(){
-  const totalPerguntas = 4
+  const totalPerguntas = 10
   const percentual = (pontuação / totalPerguntas) *100
 
   if (percentual >= 70){

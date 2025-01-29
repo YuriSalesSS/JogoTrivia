@@ -19,6 +19,36 @@
       "pergunta": "Qual foi a principal causa da Primeira Guerra Mundial?",
       "respostas": ["A corrida armamentista", "O assassinato do arquiduque Francisco Ferdinando", "Disputas coloniais", "Conflitos religiosos"],
       "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Quem foi o responsável pela abolição da escravatura no Brasil?",
+      "respostas": ["D. Pedro II", "Princesa Isabel", "Getúlio Vargas", "Deodoro da Fonseca"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual foi a causa da Revolução Francesa?",
+      "respostas": ["Desigualdade social e financeira", "Invasão militar", "Crise econômica na Alemanha", "Conflitos religiosos"],
+      "respostaCorreta": 0
+    },
+    {
+      "pergunta": "Em que ano foi assinada a independência dos Estados Unidos?",
+      "respostas": ["1776", "1789", "1800", "1772"],
+      "respostaCorreta": 0
+    },
+    {
+      "pergunta": "Quem foi o líder da Revolução Cubana?",
+      "respostas": ["Che Guevara", "Fidel Castro", "Hugo Chávez", "Simón Bolívar"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Em que guerra os EUA usaram pela primeira vez armas nucleares?",
+      "respostas": ["Primeira Guerra Mundial", "Guerra do Vietnã", "Segunda Guerra Mundial", "Guerra da Coreia"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Quem foi o responsável pela construção do Muro de Berlim?",
+      "respostas": ["Adolf Hitler", "Joseph Stalin", "Nikita Khrushchev", "Walter Ulbricht"],
+      "respostaCorreta": 3
     }
   ],
   "geografia": [
@@ -41,6 +71,36 @@
       "pergunta": "Qual é o país mais populoso do mundo?",
       "respostas": ["Estados Unidos", "Índia", "China", "Indonésia"],
       "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual é a capital do Japão?",
+      "respostas": ["Pequim", "Seul", "Tóquio", "Bangcoc"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual oceano está localizado a leste da África?",
+      "respostas": ["Oceano Atlântico", "Oceano Índico", "Oceano Pacífico", "Oceano Ártico"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual é a maior cidade do Brasil?",
+      "respostas": ["Rio de Janeiro", "Brasília", "São Paulo", "Salvador"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual continente é conhecido como 'berço da civilização'?",
+      "respostas": ["Ásia", "África", "Europa", "América"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual é o menor país do mundo?",
+      "respostas": ["Mônaco", "San Marino", "Vaticano", "Nauru"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Onde está localizada a Grande Barreira de Coral?",
+      "respostas": ["Havai", "Austrália", "Fiji", "Polinésia Francesa"],
+      "respostaCorreta": 1
     }
   ],
   "ciencias": [
@@ -63,6 +123,36 @@
       "pergunta": "Qual é a principal fonte de energia para a vida na Terra?",
       "respostas": ["Água", "Oxigênio", "Carboidratos", "Sol"],
       "respostaCorreta": 3
+    },
+    {
+      "pergunta": "Quem formulou a teoria da relatividade?",
+      "respostas": ["Isaac Newton", "Albert Einstein", "Galileu Galilei", "Nikola Tesla"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual é o maior órgão do corpo humano?",
+      "respostas": ["Coração", "Cérebro", "Pele", "Fígado"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual é o principal gás responsável pelo efeito estufa?",
+      "respostas": ["Oxigênio", "Carbono", "Dióxido de carbono", "Nitrogênio"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual é a unidade de medida da intensidade da corrente elétrica?",
+      "respostas": ["Volt", "Amperes", "Ohm", "Coulomb"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Como é chamado o processo de transformação da água de gás para líquido?",
+      "respostas": ["Condensação", "Evaporação", "Sublimação", "Congelamento"],
+      "respostaCorreta": 0
+    },
+    {
+      "pergunta": "Qual é o nome da célula responsável pela imunidade do corpo humano?",
+      "respostas": ["Hematócito", "Neurônio", "Linfócito", "Eritrócito"],
+      "respostaCorreta": 2
     }
   ],
   "conhecimentosgerais": [
@@ -84,6 +174,36 @@
     {
       "pergunta": "Quantos continentes existem no mundo?",
       "respostas": ["7", "5", "8", "6"],
+      "respostaCorreta": 0
+    },
+    {
+      "pergunta": "Quem escreveu 'Dom Quixote'?",
+      "respostas": ["William Shakespeare", "Jorge Luis Borges", "Miguel de Cervantes", "Leo Tolstoy"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual é o nome do famoso detetive criado por Arthur Conan Doyle?",
+      "respostas": ["Hercule Poirot", "Sam Spade", "Sherlock Holmes", "Philip Marlowe"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Quem foi o primeiro homem a pisar na Lua?",
+      "respostas": ["Buzz Aldrin", "John Glenn", "Neil Armstrong", "Yuri Gagarin"],
+      "respostaCorreta": 2
+    },
+    {
+      "pergunta": "Qual é o símbolo químico da água?",
+      "respostas": ["CO2", "H2O", "O2", "H2"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual foi a primeira civilização a usar a escrita?",
+      "respostas": ["Egípcios", "Sumérios", "Romanos", "Gregos"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Quem descobriu a América?",
+      "respostas": ["Cristóvão Colombo", "Vasco da Gama", "Pedro Álvares Cabral", "Fernão de Magalhães"],
       "respostaCorreta": 0
     }
   ]
