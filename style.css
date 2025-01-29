@@ -9,6 +9,7 @@ body {
 header {
     display: flex;
     justify-content: center;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .botoes {
@@ -16,6 +17,7 @@ header {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    font-family:Arial, Helvetica, sans-serif
 
 }
 
