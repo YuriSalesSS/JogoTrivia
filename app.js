@@ -3,6 +3,7 @@ import { carregarPerguntas } from './jsonLoader.js'
 const botoes = document.querySelectorAll('.botao')
 const perguntasContainter = document.getElementById('perguntas')
 const opcoesContainer = document.getElementById("opcoes")
+let pontuação = 0;
 
 let estado = {
   historia: 0,
@@ -43,6 +44,7 @@ function exibirPergunta(data, categoria){
   if (perguntasCategoria && perguntasCategoria[indiceAtual]){
     const perguntaAtual = perguntasCategoria[indiceAtual]
     perguntasContainter.innerText = perguntaAtual.pergunta 
+    const indiceCorreto = perguntaAtual.respostaCorreta 
 
     opcoesContainer.innerHTML = ""
     perguntaAtual.respostas.forEach((resposta, index) => {
@@ -50,7 +52,11 @@ function exibirPergunta(data, categoria){
       botaoResposta.innerText = resposta
       botaoResposta.classList.add('botao')
       botaoResposta.addEventListener('click', () => {
-        console.log(`Resposta clicada ${resposta}`)
+        if(index == indiceCorreto){
+          console.log('Resposta Correta')
+        } else {
+          console.log('Resposta incorreta')
+        }
       })
       opcoesContainer.appendChild(botaoResposta)
     })
