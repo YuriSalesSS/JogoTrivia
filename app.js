@@ -53,21 +53,32 @@ function exibirPergunta(data, categoria){
       botaoResposta.classList.add('botao')
       botaoResposta.addEventListener('click', () => {
         if(index == indiceCorreto){
-          console.log('Resposta Correta')
+          pontuação += 1 
+          console.log(pontuação)
         } else {
           console.log('Resposta incorreta')
         }
+
+        estado[categoria]++
+        exibirPergunta(data, categoria)
       })
       opcoesContainer.appendChild(botaoResposta)
     })
 
 
-    estado[categoria]++
     if(estado[categoria] >= perguntasCategoria.length){
-      estado[categoria] = 0
+      
     }
   } else {
-    perguntasContainter.innerText = 'Categoria não encontrada'
+    if (pontuação >= 3) {
+        perguntasContainter.innerText = `Fim das perguntas, sua pontuação foi: ${pontuação}, voce passou! `
+    }else {
+      perguntasContainter.innerText = "Infelizmente, você não passou. Tente novamente!"
+    }
+    
     opcoesContainer.innerHTML = ""
   }
 }
+
+
+
