@@ -38,6 +38,10 @@ function configurarBotoes(data){
  
 // funcao para exibir o conteudo da pergunta no conteiner 
 function exibirPergunta(data, categoria){
+  if(estado[categoria] >= data[categoria].length){
+    finalizarJogo()
+    return
+  }
     const indiceAtual = estado[categoria]
     const perguntasCategoria = data[categoria]
 
@@ -64,21 +68,35 @@ function exibirPergunta(data, categoria){
       })
       opcoesContainer.appendChild(botaoResposta)
     })
-
-
-    if(estado[categoria] >= perguntasCategoria.length){
-      
-    }
-  } else {
-    if (pontuação >= 3) {
-        perguntasContainter.innerText = `Fim das perguntas, sua pontuação foi: ${pontuação}, voce passou! `
-    }else {
-      perguntasContainter.innerText = "Infelizmente, você não passou. Tente novamente!"
-    }
-    
-    opcoesContainer.innerHTML = ""
-  }
+  } 
 }
 
 
 
+function finalizarJogo(){
+  const totalPerguntas = 4
+  const percentual = (pontuação / totalPerguntas) *100
+
+  if (percentual >= 70){
+      perguntasContainter.innerText = `Parabéns! Você passou com ${pontuação} pontos (${percentual.toFixed(2)}%).`
+  } else {
+       perguntasContainter.innerText =  `Infelizmente, você não passou. Sua pontuação: ${pontuação} (${percentual.toFixed(2)}%).`
+  }
+
+  opcoesContainer.innerHTML = ""
+
+  const botaoReiniciar = document.createElement("button")
+  botaoReiniciar.innerText = `Jogar Novamente`
+  botaoReiniciar.classList.add('botao')
+  botaoReiniciar.addEventListener('click', () => {
+    pontuação = 0
+
+    for(let categoria in estado ){
+      estado[categoria] = 0
+    }
+    perguntasContainter.innerText = 'Escolha uma categoria para começar!'
+    opcoesContainer.innerHTML = ""
+  })
+
+  opcoesContainer.appendChild(botaoReiniciar)
+}
