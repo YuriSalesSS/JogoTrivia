@@ -1,104 +1,102 @@
-import { carregarPerguntas } from './jsonLoader.js'
+import { carregarPerguntas } from './jsonLoader.js';
 
-const botoes = document.querySelectorAll('.botao')
-const perguntasContainter = document.getElementById('perguntas')
-const opcoesContainer = document.getElementById("opcoes")
-let pontuação = 0;
+const botoes = document.querySelectorAll('.botao');
+const perguntasContainer = document.getElementById('perguntas');
+const opcoesContainer = document.getElementById('opcoes');
+const total_perguntas = 10;
+const percentual_aprovacao = 70;
 
+let pontuacao = 0;
 let estado = {
   historia: 0,
   geografia: 0,
   ciencias: 0,
   conhecimentosgerais: 0
-}
+};
 
-
-// funcao principal
+// Função principal
 carregarPerguntas()
-  .then(data =>{
-    console.log('Perguntas carregadas', data)
-    configurarBotoes(data)
-})
-.catch(error => {
-  console.error('Erro ao carregar as perguntas:', error.message)
-})
+  .then(data => {
+    console.log('Perguntas carregadas', data);
+    configurarBotoes(data);
+  })
+  .catch(error => {
+    console.error('Erro ao carregar as perguntas:', error.message);
+  });
 
-//funcao para configurar os sventos nos botoes
-function configurarBotoes(data){
-    botoes.forEach(botao => {
-      botao.addEventListener('click', () => {
-        const categoria = botao.id.replace("Bt", "").toLowerCase()
-        exibirPergunta(data, categoria)
-      })
-    })
-     
-  
- 
+// Função para configurar os eventos nos botões
+function configurarBotoes(data) {
+  botoes.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const categoria = botao.id.replace("Bt", "").toLowerCase();
+      exibirPergunta(data, categoria);
+    });
+  });
 }
- 
-// funcao para exibir o conteudo da pergunta no conteiner 
-function exibirPergunta(data, categoria){
-  if(estado[categoria] >= data[categoria].length){
-    finalizarJogo()
-    return
+
+// Função para exibir o conteúdo da pergunta no container
+function exibirPergunta(data, categoria) {
+  if (estado[categoria] >= data[categoria].length) {
+    finalizarJogo();
+    return;
   }
-    const indiceAtual = estado[categoria]
-    const perguntasCategoria = data[categoria]
 
-  if (perguntasCategoria && perguntasCategoria[indiceAtual]){
-    const perguntaAtual = perguntasCategoria[indiceAtual]
-    perguntasContainter.innerText = perguntaAtual.pergunta 
-    const indiceCorreto = perguntaAtual.respostaCorreta 
+  const indiceAtual = estado[categoria];
+  const perguntasCategoria = data[categoria];
 
-    opcoesContainer.innerHTML = ""
+  if (perguntasCategoria && perguntasCategoria[indiceAtual]) {
+    const perguntaAtual = perguntasCategoria[indiceAtual];
+    perguntasContainer.innerText = perguntaAtual.pergunta;
+    const indiceCorreto = perguntaAtual.respostaCorreta;
+
+    opcoesContainer.innerHTML = "";
     perguntaAtual.respostas.forEach((resposta, index) => {
-      const botaoResposta = document.createElement("button")
-      botaoResposta.innerText = resposta
-      botaoResposta.classList.add('botao')
-      botaoResposta.addEventListener('click', () => {
-        if(index == indiceCorreto){
-          pontuação += 1 
-          console.log(pontuação)
+      const botaoResposta = criarBotaoResposta(resposta, () => {
+        if (index === indiceCorreto) {
+          pontuacao += 1;
+          console.log(`Pontuação: ${pontuacao}`);
         } else {
-          console.log('Resposta incorreta')
+          console.log('Resposta incorreta');
         }
 
-        estado[categoria]++
-        exibirPergunta(data, categoria)
-      })
-      opcoesContainer.appendChild(botaoResposta)
-    })
-  } 
+        estado[categoria]++;
+        exibirPergunta(data, categoria);
+      });
+      opcoesContainer.appendChild(botaoResposta);
+    });
+  }
 }
 
+// Função para criar botões de resposta
+function criarBotaoResposta(texto, onClick) {
+  const botao = document.createElement("button");
+  botao.innerText = texto;
+  botao.classList.add('botao');
+  botao.addEventListener('click', onClick);
+  return botao;
+}
 
+// Função para finalizar o jogo
+function finalizarJogo() {
+  const percentual = (pontuacao / total_perguntas) * 100;
 
-
-// função para ao final das perguntas, incluir a pontuação e o botao para reiniciar o jogo
-function finalizarJogo(){
-  const totalPerguntas = 10
-  const percentual = (pontuação / totalPerguntas) *100
-
-  if (percentual >= 70){
-      perguntasContainter.innerText = `Parabéns! Você passou com ${pontuação} pontos (${percentual.toFixed(2)}%).`
+  if (percentual >= percentual_aprovacao) {
+    perguntasContainer.innerText = `Parabéns! Você passou com ${pontuacao} pontos (${percentual.toFixed(2)}%).`;
   } else {
-       perguntasContainter.innerText =  `Infelizmente, você não passou. Sua pontuação: ${pontuação} (${percentual.toFixed(2)}%).`
+    perguntasContainer.innerText = `Infelizmente, você não passou. Sua pontuação: ${pontuacao} (${percentual.toFixed(2)}%).`;
   }
 
-  opcoesContainer.innerHTML = ""
+  opcoesContainer.innerHTML = "";
+  const botaoReiniciar = criarBotaoResposta('Jogar Novamente', reiniciarJogo);
+  opcoesContainer.appendChild(botaoReiniciar);
+}
 
-  const botaoReiniciar = document.createElement("button")
-  botaoReiniciar.innerText = `Jogar Novamente`
-  botaoReiniciar.classList.add('botao')
-  botaoReiniciar.addEventListener('click', () => {
-    pontuação = 0
-
-    for(let categoria in estado ){
-      estado[categoria] = 0
-    }
-    perguntasContainter.innerText = 'Escolha uma categoria para começar!'
-    opcoesContainer.innerHTML = ""
-  })
-
-  opcoesContainer.appendChild(botaoReiniciar)
+// Função para reiniciar o jogo
+function reiniciarJogo() {
+  pontuacao = 0;
+  for (let categoria in estado) {
+    estado[categoria] = 0;
+  }
+  perguntasContainer.innerText = 'Escolha uma categoria para começar!';
+  opcoesContainer.innerHTML = "";
 }
