@@ -60,7 +60,8 @@ function exibirPergunta(data, categoria) {
         }
 
         estado[categoria]++;
-        exibirPergunta(data, categoria);
+
+        setTimeout(() => exibirPergunta(data, categoria), 500)
       });
       opcoesContainer.appendChild(botaoResposta);
     });
